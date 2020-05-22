@@ -1,10 +1,26 @@
 {
+  "repositories": [
+    {
+      "type": "package",
+      "package": {
+        "name": "lokesh/lightbox",
+        "version": "2.11.1",
+        "source": {
+          "url": "https://github.com/lokesh/lightbox2",
+          "type": "git",
+          "reference": "master"
+        }
+      }
+    }
+  ],
   "name": "boergenerwebdesign/bw-gallery",
   "type": "typo3-cms-extension",
   "description": "Erweitert Fluid um eine Galerie-Ansicht.",
   "license": "GPL-2.0-or-later",
   "require": {
-    "typo3/cms-core": "^9.5"
+    "typo3/cms-core": "^9.5",
+    "svewap/ws-scss": "^1.1",
+    "lokesh/lightbox": "*"
   },
   "replace": {
     "boergenerwebdesign/bw-gallery": "self.version",

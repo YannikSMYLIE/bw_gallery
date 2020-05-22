@@ -1,0 +1,26 @@
+.tx-bw-gallery {
+  @import "pagination";
+
+  .row {
+    $gutterwidth: 5px;
+    margin: -$gutterwidth !important;
+    .col {
+      padding: $gutterwidth !important;
+    }
+  }
+
+  .img-wrapper {
+    padding-top: 100%;
+    background: red;
+    position: relative;
+
+    .img-container {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: green;
+    }
+  }
+}

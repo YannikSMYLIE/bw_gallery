@@ -1,0 +1,44 @@
+.f3-widget-paginator {
+  $border: #BBB;
+  $bg: #EEE;
+  $bg_active: #DDD;
+  $margin: 15px;
+
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    margin-right: 5px;
+
+    a {
+      display: block;
+      padding: 5px 10px;
+      border: 1px solid $border;
+      background: $bg;
+      color: #000;
+      text-decoration: none;
+      &:hover {
+        background: $bg_active;
+      }
+    }
+
+    &.current {
+      padding: 5px 10px;
+      border: 1px solid $border;
+      background: $bg_active;
+      font-weight: bold;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &:first-child {
+    margin-bottom: $margin;
+  }
+  &:last-child {
+    margin-top: $margin;
+  }
+}

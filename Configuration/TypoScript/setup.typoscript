@@ -1,4 +1,4 @@
-lib.contentElement {
+plugin.tx_bwgallery.view {
     layoutRootPaths {
         205 = EXT:bw_gallery/Resources/Private/Layouts/
     }
@@ -8,4 +8,8 @@ lib.contentElement {
     templateRootPaths {
         205 = EXT:bw_gallery/Resources/Private/Templates/
     }
+}
+
+page.includeCSS {
+    bw_gallery = EXT:bw_gallery/Resources/Public/Css/bw_gallery.scss
 }
