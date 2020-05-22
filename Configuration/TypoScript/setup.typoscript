@@ -1,0 +1,11 @@
+lib.contentElement {
+    layoutRootPaths {
+        205 = EXT:bw_gallery/Resources/Private/Layouts/
+    }
+    partialRootPaths {
+        205 = EXT:bw_gallery/Resources/Private/Partials/
+    }
+    templateRootPaths {
+        205 = EXT:bw_gallery/Resources/Private/Templates/
+    }
+}

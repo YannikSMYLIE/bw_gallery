@@ -1,0 +1,18 @@
+{
+  "name": "boergenerwebdesign/bw-gallery",
+  "type": "typo3-cms-extension",
+  "description": "Erweitert Fluid um eine Galerie-Ansicht.",
+  "license": "GPL-2.0-or-later",
+  "require": {
+    "typo3/cms-core": "^9.5"
+  },
+  "replace": {
+    "boergenerwebdesign/bw-gallery": "self.version",
+    "typo3-ter/bw-gallery": "self.version"
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "bw_gallery"
+    }
+  }
+}
