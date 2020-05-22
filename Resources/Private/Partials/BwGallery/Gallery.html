@@ -1,0 +1,7 @@
+hier!;
+
+<div class="gallerycontainer">
+    <f:widget.paginate objects="{files}" as="paginatedFiles" configuration="{itemsPerPage: 12, insertAbove: 1, insertBelow: 1, maximumNumberOfLinks: 10}">
+        <f:render partial="BwGallery/Grid" arguments="{_all}" />
+    </f:widget.paginate>
+</div>

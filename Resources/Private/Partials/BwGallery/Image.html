@@ -1,0 +1,14 @@
+<a href="{file.publicUrl}">
+    <img
+            srcset=" {f:uri.image(image : file, height : '1000c', width : '1000c', crop : 1)} 1000w,
+                     {f:uri.image(image : file, height : '600c', width : '600c', crop : 1)} 600w"
+            sizes="	 (min-width: 1200px) 16vw,
+                     (min-width: 992px) 25vw,
+                     (min-width: 768px) 33vw,
+                     (min-width: 576px) 50vw,
+                     100vw"
+            src="{f:uri.image(image : file, height : '350c', width : '350c', crop : 1)}"
+            alt="{file.alternative}"
+            class="img-fluid"
+    />
+</a>

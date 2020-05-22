@@ -14,5 +14,10 @@
     "typo3/cms": {
       "extension-key": "bw_gallery"
     }
+  },
+  "autoload": {
+    "psr-4": {
+      "BoergenerWebdesign\\BwGallery\\": "Classes/"
+    }
   }
 }

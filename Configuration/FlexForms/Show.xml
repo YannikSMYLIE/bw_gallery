@@ -1,0 +1,24 @@
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Allgemeine Einstellungen</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+					<settings.collections>
+						<TCEforms>
+							<label>Zu berücksichtigende File Collections</label>
+							<config>
+                                <type>group</type>
+                                <internal_type>db</internal_type>
+                                <allowed>sys_file_collection</allowed>
+							</config>
+						</TCEforms>
+					</settings.collections>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>
