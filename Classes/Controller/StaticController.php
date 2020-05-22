@@ -15,7 +15,8 @@ class StaticController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
         $filecollectionIds = $this->settings['collections'] ? explode(",", $this->settings['collections']) : [];
         $files = $this -> getFiles($filecollectionIds);
         $this -> view -> assignMultiple([
-            "files" => $files
+            "files" => $files,
+            "guid"=> $this->configurationManager->getContentObject()->data['uid']
         ]);
     }
 

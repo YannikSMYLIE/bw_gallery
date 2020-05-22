@@ -3,7 +3,7 @@
 	<f:section name="main">
 		<div class="gallerycontainer">
 			<f:widget.paginate objects="{files}" as="paginatedFiles" configuration="{itemsPerPage: 36, insertAbove: 1, insertBelow: 1, maximumNumberOfLinks: 10}">
-				<f:render partial="Grid" arguments="{_all}" />
+				<f:render partial="Grid" arguments="{files : paginatedFiles, guid : guid}" />
 			</f:widget.paginate>
 		</div>
 	</f:section>
