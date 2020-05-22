@@ -32,9 +32,12 @@ class StaticController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
         foreach($filecollectionIds as $filecollectionId) {
             $filecollection = $this -> fileCollectionRepository -> findByUid($filecollectionId);
             $filecollection -> loadContents();
+
+
             $filecollection -> rewind();
-            while($filecollection -> current()) {
-                $files[] = $filecollection -> current();
+            while($file = $filecollection -> current()) {
+                $file -> _getMetaData();
+                $files[] = $file;
                 $filecollection -> next();
             }
         }

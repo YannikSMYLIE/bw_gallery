@@ -1,4 +1,4 @@
-<a href="{f:uri.image(image : file)}" data-lightbox="gallery-{guid}" data-title="{file.description}">
+<a href="{f:uri.image(image : file)}" data-lightbox="gallery-{guid}" data-title="{file.properties.description}">
     <img
             srcset=" {f:uri.image(image : file, height : '1000c', width : '1000c', crop : 1)} 1000w,
                      {f:uri.image(image : file, height : '600c', width : '600c', crop : 1)} 600w"
@@ -8,7 +8,7 @@
                      (min-width: 576px) 50vw,
                      100vw"
             src="{f:uri.image(image : file, height : '350c', width : '350c', crop : 1)}"
-            alt="{file.alternative}"
+            alt="{file.properties.alternative}"
             class="img-fluid"
     />
 </a>

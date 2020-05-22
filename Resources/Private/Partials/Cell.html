@@ -1,5 +1,10 @@
 <div class="img-wrapper">
     <div class="img-container">
-        <f:render partial="Image" arguments="{file : file, guid : guid}" />
+        <f:render partial="Image" arguments="{_all}" />
     </div>
+    <f:if condition="{file.properties.title}">
+        <div class="caption">
+            {file.properties.title}
+        </div>
+    </f:if>
 </div>
