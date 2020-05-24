@@ -3,7 +3,7 @@
         <sDEF>
             <ROOT>
                 <TCEforms>
-                    <sheetTitle>Allgemeine Einstellungen</sheetTitle>
+                    <sheetTitle>Anzuzeigende Elemente</sheetTitle>
                 </TCEforms>
                 <type>array</type>
                 <el>
@@ -17,8 +17,79 @@
 							</config>
 						</TCEforms>
 					</settings.collections>
+                    <settings.files>
+                        <TCEforms>
+                            <label>Zu berücksichtigende Dateien</label>
+                            <config>
+                                <type>inline</type>
+                                <maxitems>99</maxitems>
+                                <foreign_table>sys_file_reference</foreign_table>
+                                <foreign_table_field>tablenames</foreign_table_field>
+                                <foreign_label>uid_local</foreign_label>
+                                <foreign_sortby>sorting_foreign</foreign_sortby>
+                                <foreign_selector>uid_local</foreign_selector>
+                                <foreign_selector_fieldTcaOverride type="array">
+                                    <config>
+                                        <appearance>
+                                            <elementBrowserType>file</elementBrowserType>
+                                            <elementBrowserAllowed>jpg,png</elementBrowserAllowed>
+                                        </appearance>
+                                    </config>
+                                </foreign_selector_fieldTcaOverride>
+                                <foreign_match_fields type="array">
+                                    <fieldname>image</fieldname>
+                                </foreign_match_fields>
+                                <appearance type="array">
+                                    <newRecordLinkAddTitle>1</newRecordLinkAddTitle>
+                                    <headerThumbnail>
+                                        <field>uid_local</field>
+                                        <height>64</height>
+                                        <width>64</width>
+                                    </headerThumbnail>
+                                </appearance>
+                            </config>
+                        </TCEforms>
+                    </settings.files>
                 </el>
             </ROOT>
         </sDEF>
+
+        <view>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Pagination</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <settings.pagination.active>
+                        <TCEforms>
+                            <label>Pagination aktivieren</label>
+                            <config>
+                                <type>check</type>
+                                <default>1</default>
+                            </config>
+                        </TCEforms>
+                    </settings.pagination.active>
+                    <settings.pagination.insertAbove>
+                        <TCEforms>
+                            <label>Seitenauswahl oberhalb von Galerie einfügen</label>
+                            <config>
+                                <type>check</type>
+                                <default>1</default>
+                            </config>
+                        </TCEforms>
+                    </settings.pagination.insertAbove>
+                    <settings.pagination.insertBelow>
+                        <TCEforms>
+                            <label>Seitenauswahl unterhalb von Galerie einfügen</label>
+                            <config>
+                                <type>check</type>
+                                <default>1</default>
+                            </config>
+                        </TCEforms>
+                    </settings.pagination.insertBelow>
+                </el>
+            </ROOT>
+        </view>
     </sheets>
 </T3DataStructure>
