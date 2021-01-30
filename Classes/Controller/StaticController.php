@@ -1,18 +1,29 @@
 <?php
 namespace BoergenerWebdesign\BwGallery\Controller;
 
-class StaticController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
-    /**
-     * @var \TYPO3\CMS\Core\Resource\FileCollectionRepository
-     * @inject
-     */
-    protected $fileCollectionRepository = null;
-    /**
-     * @var \TYPO3\CMS\Core\Resource\FileRepository
-     * @inject
-     */
-    protected $fileRepository = null;
+use TYPO3\CMS\Core\Resource\FileCollectionRepository;
+use TYPO3\CMS\Core\Resource\FileRepository;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
+class StaticController extends ActionController {
+    /** @var FileCollectionRepository */
+    protected FileCollectionRepository $fileCollectionRepository;
+    /** @var FileRepository */
+    protected FileRepository $fileRepository;
+
+    /**
+     * StaticController constructor.
+     * @param FileCollectionRepository $fileCollectionRepository
+     * @param FileRepository $fileRepository
+     */
+    public function __construct(FileCollectionRepository $fileCollectionRepository, FileRepository $fileRepository) {
+        $this -> fileCollectionRepository = $fileCollectionRepository;
+        $this -> fileRepository = $fileRepository;
+    }
+
+    /**
+     * Initialisiert die Darstellung
+     */
     public function initializeShowAction() : void {
         $this -> setDefaultValues();
     }
