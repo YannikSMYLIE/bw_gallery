@@ -4,6 +4,7 @@ namespace BoergenerWebdesign\BwGallery\Controller;
 use TYPO3\CMS\Core\Resource\FileCollectionRepository;
 use TYPO3\CMS\Core\Resource\FileRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class StaticController extends ActionController {
     /** @var FileCollectionRepository */
@@ -94,9 +95,9 @@ class StaticController extends ActionController {
      * Setzt die Settings auf Default-Values.
      */
     private function setDefaultValues() : void {
-        $this -> settings["pagination"]["active"] = (bool)$this -> settings["pagination"]["active"] ?? true;
-        $this -> settings["pagination"]["insertBelow"] = (bool)$this -> settings["pagination"]["insertBelow"] ?? true;
-        $this -> settings["pagination"]["insertAbove"] = (bool)$this -> settings["pagination"]["insertAbove"] ?? true;
+        $this -> settings["pagination"]["active"] = $this -> settings["pagination"]["active"] ? (bool)$this -> settings["pagination"]["active"] : true;
+        $this -> settings["pagination"]["insertBelow"] = $this -> settings["pagination"]["insertBelow"]  ? (bool)$this -> settings["pagination"]["insertBelow"] : true;
+        $this -> settings["pagination"]["insertAbove"] = $this -> settings["pagination"]["insertAbove"]  ? (bool)$this -> settings["pagination"]["insertAbove"] : true;
         $this -> settings["pagination"]["itemsPerPage"] = (int)36;
         $this -> settings["collections"] = $this -> settings["collections"] ? explode(",", $this -> settings["collections"]) : [];
         $this -> settings["files"] = $this -> settings["files"] ? explode(",", $this -> settings["files"]) : [];
