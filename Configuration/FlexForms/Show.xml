@@ -7,6 +7,22 @@
                 </TCEforms>
                 <type>array</type>
                 <el>
+                    <settings.columns>
+                        <TCEforms>
+                            <label>Anzahl maximaler Spalten</label>
+                            <config>
+                                <type>input</type>
+                                <size>20</size>
+                                <max>30</max>
+                                <default>6</default>
+                                <range>
+                                    <lower>1</lower>
+                                    <upper>12</upper>
+                                </range>
+                                <eval>trim,int</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.columns>
 					<settings.collections>
 						<TCEforms>
 							<label>Zu berücksichtigende File Collections</label>
@@ -64,6 +80,7 @@
                     <settings.pagination.active>
                         <TCEforms>
                             <label>Pagination aktivieren</label>
+                            <onChange>reload</onChange>
                             <config>
                                 <type>check</type>
                                 <default>1</default>
@@ -73,6 +90,12 @@
                     <settings.pagination.insertAbove>
                         <TCEforms>
                             <label>Seitenauswahl oberhalb von Galerie einfügen</label>
+                            <displayCond>
+                                <OR>
+                                    <value1>FIELD:settings.pagination.active:REQ:true</value1>
+                                    <value2>REC:NEW:true</value2>
+                                </OR>
+                            </displayCond>
                             <config>
                                 <type>check</type>
                                 <default>1</default>
@@ -82,12 +105,36 @@
                     <settings.pagination.insertBelow>
                         <TCEforms>
                             <label>Seitenauswahl unterhalb von Galerie einfügen</label>
+                            <displayCond>
+                                <OR>
+                                    <value1>FIELD:settings.pagination.active:REQ:true</value1>
+                                    <value2>REC:NEW:true</value2>
+                                </OR>
+                            </displayCond>
                             <config>
                                 <type>check</type>
                                 <default>1</default>
                             </config>
                         </TCEforms>
                     </settings.pagination.insertBelow>
+                    <settings.pagination.itemsPerPage>
+                        <TCEforms>
+                            <label>Bilder pro Seite</label>
+                            <displayCond>
+                                <OR>
+                                    <value1>FIELD:settings.pagination.active:REQ:true</value1>
+                                    <value2>REC:NEW:true</value2>
+                                </OR>
+                            </displayCond>
+                            <config>
+                                <type>input</type>
+                                <size>20</size>
+                                <max>30</max>
+                                <default>36</default>
+                                <eval>trim,int</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.pagination.itemsPerPage>
                 </el>
             </ROOT>
         </view>

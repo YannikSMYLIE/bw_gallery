@@ -2,7 +2,7 @@
 	<f:layout name="Default" />
 	<f:section name="main">
 		<div class="gallerycontainer">
-			<f:if condition="{settings.pagination.active} && {files -> f:count()} > 36">
+			<f:if condition="{settings.pagination.active} && {files -> f:count()} > {settings.pagination.itemsPerPage}">
 				<f:then>
 					<f:widget.paginate objects="{files}" as="paginatedFiles" configuration="{
 						itemsPerPage: settings.pagination.itemsPerPage,
@@ -10,11 +10,11 @@
 						insertBelow: settings.pagination.insertBelow,
 						maximumNumberOfLinks: 10
 					}">
-						<f:render partial="Grid" arguments="{files : paginatedFiles, guid : guid}" />
+						<f:render partial="Grid" arguments="{files : paginatedFiles, guid : guid, columns : columns}" />
 					</f:widget.paginate>
 				</f:then>
 				<f:else>
-					<f:render partial="Grid" arguments="{files : files, guid : guid}" />
+					<f:render partial="Grid" arguments="{files : files, guid : guid, columns : columns}" />
 				</f:else>
 			</f:if>
 		</div>

@@ -40,7 +40,8 @@ class StaticController extends ActionController {
 
         $this -> view -> assignMultiple([
             "files" => $files,
-            "guid"=> $this->configurationManager->getContentObject()->data['uid']
+            "guid" => $this->configurationManager->getContentObject()->data['uid'],
+            "columns" => $this -> calculateColumns($this -> settings["columns"])
         ]);
     }
 
@@ -95,11 +96,27 @@ class StaticController extends ActionController {
      * Setzt die Settings auf Default-Values.
      */
     private function setDefaultValues() : void {
-        $this -> settings["pagination"]["active"] = $this -> settings["pagination"]["active"] ? (bool)$this -> settings["pagination"]["active"] : true;
-        $this -> settings["pagination"]["insertBelow"] = $this -> settings["pagination"]["insertBelow"]  ? (bool)$this -> settings["pagination"]["insertBelow"] : true;
-        $this -> settings["pagination"]["insertAbove"] = $this -> settings["pagination"]["insertAbove"]  ? (bool)$this -> settings["pagination"]["insertAbove"] : true;
-        $this -> settings["pagination"]["itemsPerPage"] = (int)36;
+        $this -> settings["pagination"]["active"] = isset($this -> settings["pagination"]["active"]) ? (bool)$this -> settings["pagination"]["active"] : true;
+        $this -> settings["pagination"]["insertBelow"] = isset($this -> settings["pagination"]["insertBelow"])  ? (bool)$this -> settings["pagination"]["insertBelow"] : true;
+        $this -> settings["pagination"]["insertAbove"] = isset($this -> settings["pagination"]["insertAbove"])  ? (bool)$this -> settings["pagination"]["insertAbove"] : true;
+        $this -> settings["pagination"]["itemsPerPage"] = (int)$this -> settings["pagination"]["itemsPerPage"] ? (int)$this -> settings["pagination"]["itemsPerPage"] : 36;
+        $this -> settings["columns"]  = (int)$this -> settings["columns"] ? (int)$this -> settings["columns"] : 4;
         $this -> settings["collections"] = $this -> settings["collections"] ? explode(",", $this -> settings["collections"]) : [];
         $this -> settings["files"] = $this -> settings["files"] ? explode(",", $this -> settings["files"]) : [];
+    }
+
+    /**
+     * Berechnet wieviele Spalten es je nach Ansicht gibt.
+     * @param int $max
+     * @return array
+     */
+    private function calculateColumns(int $max) : array {
+        return [
+            'xs' => min(1, $max),
+            'sm' => min(2, $max),
+            'md' => min(3, $max),
+            'lg' => min(4, $max),
+            'xl' => min(6, $max)
+        ];
     }
 }
