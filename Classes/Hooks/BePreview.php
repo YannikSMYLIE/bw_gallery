@@ -27,7 +27,7 @@ class BePreview {
         $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
         $this -> fileUtility = $objectManager -> get(FileUtility::class);
 
-        $flexFormData = $this -> readFlexForm($params["row"]["pi_flexform"]);
+        $flexFormData = $this -> readFlexForm($params["row"]["pi_flexform"] ?? "");
         $files = $this -> fileUtility -> getFiles($flexFormData["collections"], $flexFormData["files"]);
         return $this -> render($flexFormData, $files);
     }
@@ -35,9 +35,9 @@ class BePreview {
     /**
      * Liest das FlexForm ein und speichert es.
      * @param string $xml
-     * @return array
+     * @return array|null
      */
-    private function readFlexForm(string $xml) : array {
+    private function readFlexForm(string $xml) : ?array {
         $flexFormService = GeneralUtility::makeInstance(FlexFormService::class);
         $settings = $flexFormService->convertFlexFormContentToArray($xml)["settings"];
 
