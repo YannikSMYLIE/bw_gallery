@@ -1,10 +1,9 @@
 <div style="margin-bottom: 15px;">
-    <h2 style="margin: 0; padding: 0;">Bildergalerie</h2>
     <table>
         <tr>
             <th>Pagination:</th>
             <td>
-                <f:if condition="{settings.pagination.active}">
+                <f:if condition="{data.tx_bwgallery_pagination}">
                     <f:then>ja</f:then>
                     <f:else>nein</f:else>
                 </f:if>
@@ -14,7 +13,7 @@
             <tr>
                 <th>Pagination oben:</th>
                 <td>
-                    <f:if condition="{settings.pagination.insertAbove}">
+                    <f:if condition="{data.tx_bwgallery_pagination_top}">
                         <f:then>ja</f:then>
                         <f:else>nein</f:else>
                     </f:if>
@@ -23,7 +22,7 @@
             <tr>
                 <th>Pagination unten:</th>
                 <td>
-                    <f:if condition="{settings.pagination.insertBelow}">
+                    <f:if condition="{data.tx_bwgallery_pagination_bottom}">
                         <f:then>ja</f:then>
                         <f:else>nein</f:else>
                     </f:if>
@@ -31,12 +30,12 @@
             </tr>
             <tr>
                 <th>Bilder pro Seite:</th>
-                <td>{settings.pagination.itemsPerPage}</td>
+                <td>{data.tx_bwgallery_pagination_elements}</td>
             </tr>
         </f:if>
         <tr>
             <th style="padding-right: 10px;">Maximale Anzahl Spalten:</th>
-            <td>{settings.columns}</td>
+            <td>{data.tx_bwgallery_columns}</td>
         </tr>
     </table>
 </div>
@@ -45,7 +44,7 @@
 <div>
     <f:alias map="{imageSize : 100}">
         <f:for each="{files}" as="file" iteration="iter">
-            <f:image src="{file.uid}" width="120c" height="120c" style="margin-bottom: 5px;" />
+            <f:image src="{file.uid}" treatIdAsReference="1" width="{imageSize}c" height="{imageSize}c" style="margin-bottom: 5px;" />
         </f:for>
     </f:alias>
 </div>

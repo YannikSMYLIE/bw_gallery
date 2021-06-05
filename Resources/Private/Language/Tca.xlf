@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2014-10-30T10:59:38Z" product-name="bw_gallery">
+        <header/>
+        <body>
+            <trans-unit id="title">
+                <source>Fluid Galerie</source>
+            </trans-unit>
+            <trans-unit id="description">
+                <source>Eine responsive Galerieausgabe mit Pagination.</source>
+            </trans-unit>
+
+
+            <trans-unit id="tx_bwgallery_pagination">
+                <source>Pagination</source>
+            </trans-unit>
+            <trans-unit id="tx_bwgallery_pagination_top">
+                <source>Pagination über Bildern</source>
+            </trans-unit>
+            <trans-unit id="tx_bwgallery_pagination_bottom">
+                <source>Pagination unter Bildern</source>
+            </trans-unit>
+            <trans-unit id="tx_bwgallery_pagination_elements">
+                <source>Anzahl Bilder pro Seite</source>
+            </trans-unit>
+            <trans-unit id="tx_bwgallery_columns">
+                <source>Maximale Spaltenanzahl</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

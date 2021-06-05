@@ -3,22 +3,27 @@ if (!defined('TYPO3_MODE')) {
     die ('Access denied.');
 }
 
-call_user_func(
-    function($extKey)
-    {
-        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-            'BoergenerWebdesign.BwGallery',
-            'Show',
-            [
-                'Static' => 'show'
-            ],
-            // non-cacheable actions
-            []
-        );
-    },
-    $_EXTKEY
+// Icon registrieren
+$iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+    \TYPO3\CMS\Core\Imaging\IconRegistry::class
+);
+$iconRegistry->registerIcon(
+    "tx-bwgallery-icon",
+    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:bw_gallery/Resources/Public/Icons/Extension.svg']
 );
 
-// Be Preview
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['list_type_Info']['bwgallery_show']['bw_gallery'] =
-    \BoergenerWebdesign\BwGallery\Hooks\BePreview::class . '->summary';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('
+mod.wizards.newContentElement.wizardItems.common {
+    elements {
+        tx_bwgallery {
+            iconIdentifier = tx-bwgallery-icon
+            title = LLL:EXT:bw_gallery/Resources/Private/Language/Tca.xlf:title
+            description = LLL:EXT:bw_gallery/Resources/Private/Language/Tca.xlf:description
+            tt_content_defValues {
+                CType = tx_bwgallery
+            }
+        }
+    }
+    show := addToList(tx_bwgallery)
+}');

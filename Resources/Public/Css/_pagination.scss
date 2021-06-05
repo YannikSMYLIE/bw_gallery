@@ -34,11 +34,4 @@
       margin-right: 0;
     }
   }
-
-  &:first-child {
-    margin-bottom: $margin;
-  }
-  &:last-child {
-    margin-top: $margin;
-  }
 }

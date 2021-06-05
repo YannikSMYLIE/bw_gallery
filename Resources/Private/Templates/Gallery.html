@@ -1,0 +1,54 @@
+{namespace bw=BoergenerWebdesign\BwGallery\ViewHelpers}
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="Header">
+    <f:if condition="{gallery.position.noWrap} != 1">
+        <f:render partial="Header/All" arguments="{_all}" />
+    </f:if>
+</f:section>
+
+<f:section name="Main">
+    <div class="tx-bw-gallery">
+        <div class="gallerycontainer">
+            <f:if condition="{data.tx_bwgallery_pagination}">
+                <f:then>
+                    <bw:paginate id="{data.uid}" objects="{files}" items="paginatedImages" pages="pages" itemsPerPage="{data.tx_bwgallery_pagination_elements}">
+                        <f:if condition="{data.tx_bwgallery_pagination_top}">
+                            <div class="mb-3">
+                                <f:render section="pagination" arguments="{pages : pages, data : data}" />
+                            </div>
+                        </f:if>
+                        <f:render partial="Gallery" arguments="{files : paginatedImages, guid : data.uid, columns : '{bw:columns(columns : data.tx_bwgallery_columns)}'}" />
+                        <f:if condition="{data.tx_bwgallery_pagination_bottom}">
+                            <div class="mt-3">
+                                <f:render section="pagination" arguments="{pages : pages, data : data}" />
+                            </div>
+                        </f:if>
+                    </bw:paginate>
+                </f:then>
+                <f:else>
+                    <f:render partial="Gallery" arguments="{files : files, guid : data.uid, columns : '{bw:columns(columns : data.tx_bwgallery_columns)}'}" />
+                </f:else>
+            </f:if>
+        </div>
+    </div>
+</f:section>
+
+<f:section name="pagination">
+    <ul class='f3-widget-paginator'>
+        <f:for each="{pages}" key="pageId" as="current">
+            <li class="{f:if(condition : current, then : 'current')}">
+                <f:if condition="{current}">
+                    <f:then>{pageId}</f:then>
+                    <f:else>
+                        <f:link.action section="{data.uid}" arguments="{page : pageId, id : data.uid}" extensionName="BwGallery" pluginName="Gallery">
+                            {pageId}
+                        </f:link.action>
+                    </f:else>
+                </f:if>
+            </li>
+        </f:for>
+    </ul>
+</f:section>
+</html>

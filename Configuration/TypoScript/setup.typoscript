@@ -1,19 +1,19 @@
-plugin.tx_bwgallery.view {
-    layoutRootPaths {
-        205 = EXT:bw_gallery/Resources/Private/Layouts/
-    }
-    partialRootPaths {
-        205 = EXT:bw_gallery/Resources/Private/Partials/
-    }
-    templateRootPaths {
-        205 = EXT:bw_gallery/Resources/Private/Templates/
-    }
-}
-
 page.includeCSS {
     bw_gallery = EXT:bw_gallery/Resources/Public/Css/bw_gallery.scss
     lightbox = EXT:bw_gallery/Resources/ThirdParty/lightbox/css/lightbox.css
 }
 page.includeJSFooter {
     lightbox = EXT:bw_gallery/Resources/ThirdParty/lightbox/js/lightbox.min.js
+}
+
+lib.contentElement {
+    templateRootPaths.1622844613 = EXT:bw_gallery/Resources/Private/Templates/
+    partialRootPaths.1622844613 = EXT:bw_gallery/Resources/Private/Partials/
+}
+tt_content {
+    tx_bwgallery < .uploads
+    tx_bwgallery {
+        dataProcessing.10.references.fieldName = image
+        templateName = Gallery
+    }
 }

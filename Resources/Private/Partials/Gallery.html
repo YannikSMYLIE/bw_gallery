@@ -1,0 +1,40 @@
+<div class="row row-cols-{columns.xs} row-cols-sm-{columns.sm} row-cols-md-{columns.md} row-cols-lg-{columns.lg} row-cols-xl-{columns.xl}">
+    <f:for each="{files}" as="file" iteration="iter">
+        <div class="col">
+            <div class="img-wrapper position-relative">
+                <f:render section="image" arguments="{file : file, columns : columns}" />
+                <f:render section="caption" arguments="{file : file}" />
+            </div>
+        </div>
+    </f:for>
+</div>
+
+<f:section name="image">
+    <a href="{f:uri.image(image : file)}" data-lightbox="gallery-{guid}" data-title="{file.properties.title}" class="d-block">
+        <img
+            srcset="
+                {f:uri.image(image : file, height : '1000c', width : '1000c', crop : 1)} 1000w,
+                {f:uri.image(image : file, height : '600c', width : '600c', crop : 1)} 600w
+            "
+            sizes="
+                (min-width: 1200px) calc(100% / {columns.xl}),
+                (min-width: 992px) calc(100% / {columns.lg}),
+                (min-width: 768px) calc(100% / {columns.md}),
+                (min-width: 576px) calc(100% / {columns.sm}),
+                100vw
+            "
+            src="{f:uri.image(image : file, width : '350', height : '350')}"
+            alt="{file.properties.alternative}"
+            title="{file.properties.title}"
+            class="img-fluid"
+        />
+    </a>
+</f:section>
+
+<f:section name="caption">
+    <f:if condition="{file.properties.title}">
+        <div class="caption">
+            {file.properties.title}
+        </div>
+    </f:if>
+</f:section>
