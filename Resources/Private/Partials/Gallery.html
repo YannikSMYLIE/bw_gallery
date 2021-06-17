@@ -2,15 +2,31 @@
     <f:for each="{files}" as="file" iteration="iter">
         <div class="col">
             <div class="img-wrapper position-relative">
-                <f:render section="image" arguments="{file : file, columns : columns}" />
-                <f:render section="caption" arguments="{file : file}" />
+                <f:if condition="{file.properties.title}">
+                    <f:then>
+                        <f:render section="image" arguments="{file : file, columns : columns, title : file.properties.title}" />
+                        <f:render section="caption" arguments="{file : file, title : file.properties.title}" />
+                    </f:then>
+                    <f:else>
+                        <f:if condition="{file.properties.description}">
+                            <f:then>
+                                <f:render section="image" arguments="{file : file, columns : columns, title : file.properties.description}" />
+                                <f:render section="caption" arguments="{file : file, title : file.properties.description}" />
+                            </f:then>
+                            <f:else>
+                                <f:render section="image" arguments="{file : file, columns : columns}" />
+                                <f:render section="caption" arguments="{file : file}" />
+                            </f:else>
+                        </f:if>
+                    </f:else>
+                </f:if>
             </div>
         </div>
     </f:for>
 </div>
 
 <f:section name="image">
-    <a href="{f:uri.image(image : file)}" data-lightbox="gallery-{guid}" data-title="{file.properties.title}" class="d-block">
+    <a href="{f:uri.image(image : file)}" data-lightbox="gallery-{guid}" data-title="{title}" class="d-block">
         <img
             srcset="
                 {f:uri.image(image : file, height : '1000c', width : '1000c', crop : 1)} 1000w,
@@ -25,16 +41,16 @@
             "
             src="{f:uri.image(image : file, width : '350', height : '350')}"
             alt="{file.properties.alternative}"
-            title="{file.properties.title}"
+            title="{title}"
             class="img-fluid"
         />
     </a>
 </f:section>
 
 <f:section name="caption">
-    <f:if condition="{file.properties.title}">
+    <f:if condition="{title}">
         <div class="caption">
-            {file.properties.title}
+            {title}
         </div>
     </f:if>
 </f:section>
