@@ -13,7 +13,12 @@ lib.contentElement {
 tt_content {
     tx_bwgallery < .uploads
     tx_bwgallery {
-        dataProcessing.10.references.fieldName = image
+        dataProcessing {
+            10 = BoergenerWebdesign\BwGallery\DataProcessing\GalleryProcessor
+            10 {
+                references.fieldName = image
+            }
+        }
         templateName = Gallery
     }
 }

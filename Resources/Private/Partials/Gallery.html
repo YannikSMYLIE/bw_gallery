@@ -10,11 +10,11 @@
                     <f:else>
                         <f:if condition="{file.properties.description}">
                             <f:then>
-                                <f:render section="image" arguments="{file : file, columns : columns, title : file.properties.description}" />
+                                <f:render section="image" arguments="{file : file, columns : columns, title : file.properties.description, guid : guid}" />
                                 <f:render section="caption" arguments="{file : file, title : file.properties.description}" />
                             </f:then>
                             <f:else>
-                                <f:render section="image" arguments="{file : file, columns : columns}" />
+                                <f:render section="image" arguments="{file : file, columns : columns, guid : guid}" />
                                 <f:render section="caption" arguments="{file : file}" />
                             </f:else>
                         </f:if>

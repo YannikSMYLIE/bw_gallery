@@ -93,7 +93,33 @@
                 ]
             ],
         ],
-    ]
+        'tx_bwgallery_limit' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:bw_gallery/Resources/Private/Language/Tca.xlf:tx_bwgallery_limit',
+            'onChange' => 'reload',
+            'config' => [
+                'type' => 'check',
+                'renderType' => 'checkboxToggle',
+                'default' => 1,
+                'items' => [
+                    [
+                        0 => '',
+                        1 => '',
+                    ]
+                ],
+            ],
+        ],
+        'tx_bwgallery_limit_number' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:bw_gallery/Resources/Private/Language/Tca.xlf:tx_bwgallery_limit_number',
+            'displayCond' => 'FIELD:tx_bwgallery_limit:REQ:true',
+            'config' => [
+                'type' => 'input',
+                'default' => 12,
+                'eval' => 'required,int'
+            ],
+        ],
+    ],
 );
 
 // Feld einer neuen Palette hinzufügen
@@ -106,6 +132,11 @@
     'tt_content',
     'tx_bwgallery_pagination',
     'tx_bwgallery_pagination, tx_bwgallery_pagination_top, tx_bwgallery_pagination_bottom, tx_bwgallery_pagination_elements'
+);
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
+    'tt_content',
+    'tx_bwgallery_limit',
+    'tx_bwgallery_limit, tx_bwgallery_limit_number'
 );
 
 
@@ -131,6 +162,7 @@ $GLOBALS['TCA']['tt_content']['types']['tx_bwgallery'] = [
             --palette--;;headers,
         --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.media,
             --palette--;LLL:EXT:bw_gallery/Resources/Private/Language/Tca.xlf:tx_bwgallery_pagination;tx_bwgallery_pagination,
+            --palette--;LLL:EXT:bw_gallery/Resources/Private/Language/Tca.xlf:tx_bwgallery_limit;tx_bwgallery_limit,
             tx_bwgallery_columns,
             --palette--;Dateien;tx_bwgallery_files,
         --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,

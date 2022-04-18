@@ -26,6 +26,12 @@
             <trans-unit id="tx_bwgallery_columns">
                 <source>Maximale Spaltenanzahl</source>
             </trans-unit>
+            <trans-unit id="tx_bwgallery_limit">
+                <source>Nicht alle Bilder ausgeben</source>
+            </trans-unit>
+            <trans-unit id="tx_bwgallery_limit_number">
+                <source>Anzahl auszugebender Bilder</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>
