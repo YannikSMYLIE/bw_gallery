@@ -9,8 +9,8 @@
     "svewap/ws-scss": "^11"
   },
   "replace": {
-    "boergenerwebdesign/bw-gallery": "self.version",
-    "typo3-ter/bw-gallery": "self.version"
+    "boergenerwebdesign/bw_gallery": "self.version",
+    "typo3-ter/bw_gallery": "self.version"
   },
   "extra": {
     "typo3/cms": {
