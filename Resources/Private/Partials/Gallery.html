@@ -31,6 +31,7 @@
             srcset="
                 {f:uri.image(image : file, height : '1000c', width : '1000c', crop : 1)} 1000w,
                 {f:uri.image(image : file, height : '600c', width : '600c', crop : 1)} 600w
+                {f:uri.image(image : file, height : '350c', width : '350c', crop : 1)} 350w
             "
             sizes="
                 (min-width: 1200px) calc(100% / {columns.xl}),
@@ -39,7 +40,7 @@
                 (min-width: 576px) calc(100% / {columns.sm}),
                 100vw
             "
-            src="{f:uri.image(image : file, width : '350', height : '350')}"
+            src="{f:uri.image(image : file, width : '350c', height : '350c')}"
             alt="{file.properties.alternative}"
             title="{title}"
             class="img-fluid"
