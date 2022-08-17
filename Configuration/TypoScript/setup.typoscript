@@ -2,7 +2,11 @@ page.includeCSS {
     bw_gallery = EXT:bw_gallery/Resources/Public/Css/bw_gallery.scss
     lightbox = EXT:bw_gallery/Resources/ThirdParty/lightbox/css/lightbox.css
 }
+page.includeJS {
+    bw_gallery_lazyloading = EXT:bw_gallery/Resources/Public/JavaScript/lazyloading.min.js
+}
 page.includeJSFooter {
+    bw_gallery_category = EXT:bw_gallery/Resources/Public/JavaScript/CategorySelect.js
     lightbox = EXT:bw_gallery/Resources/ThirdParty/lightbox/js/lightbox.min.js
 }
 

@@ -22,6 +22,23 @@
       opacity: 0;
       transition: opacity 300ms;
     }
+    img {
+      width: 100%;
+    }
+    .categories {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 4px;
+      line-height: 0.7em;
+
+      .category {
+        padding: 0 4px;
+        background: rgba(0,0,0,0.5);
+        color: #FFF;
+        font-size: 0.7em;
+      }
+    }
 
     &:hover {
       .caption {

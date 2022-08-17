@@ -13,6 +13,11 @@ $iconRegistry->registerIcon(
     ['source' => 'EXT:bw_gallery/Resources/Public/Icons/Extension.svg']
 );
 
+// Extend Files
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][TYPO3\CMS\Core\Resource\File::class] = [
+    'className' => \BoergenerWebdesign\BwGallery\Domain\Model\File::class
+];
+
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('
 mod.wizards.newContentElement.wizardItems.common {
     elements {

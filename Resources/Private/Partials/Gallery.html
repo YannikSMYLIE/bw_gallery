@@ -1,57 +1,22 @@
-<div class="row row-cols-{columns.xs} row-cols-sm-{columns.sm} row-cols-md-{columns.md} row-cols-lg-{columns.lg} row-cols-xl-{columns.xl}">
+<div class="gallery row row-cols-2 row-cols-sm-{columns.sm} row-cols-md-{columns.md} row-cols-lg-{columns.lg} row-cols-xl-{columns.xl}">
     <f:for each="{files}" as="file" iteration="iter">
-        <div class="col">
-            <div class="img-wrapper position-relative">
-                <f:if condition="{file.properties.title}">
-                    <f:then>
-                        <f:render section="image" arguments="{file : file, columns : columns, title : file.properties.title}" />
-                        <f:render section="caption" arguments="{file : file, title : file.properties.title}" />
-                    </f:then>
-                    <f:else>
-                        <f:if condition="{file.properties.description}">
-                            <f:then>
-                                <f:render section="image" arguments="{file : file, columns : columns, title : file.properties.description, guid : guid}" />
-                                <f:render section="caption" arguments="{file : file, title : file.properties.description}" />
-                            </f:then>
-                            <f:else>
-                                <f:render section="image" arguments="{file : file, columns : columns, guid : guid}" />
-                                <f:render section="caption" arguments="{file : file}" />
-                            </f:else>
-                        </f:if>
-                    </f:else>
-                </f:if>
-            </div>
-        </div>
+        <f:render partial="Image" arguments="{file : file, columns : columns, guid : guid, index : iter.index}" />
     </f:for>
 </div>
 
-<f:section name="image">
-    <a href="{f:uri.image(image : file)}" data-lightbox="gallery-{guid}" data-title="{title}" class="d-block">
-        <img
-            srcset="
-                {f:uri.image(image : file, height : '1000c', width : '1000c', crop : 1)} 1000w,
-                {f:uri.image(image : file, height : '600c', width : '600c', crop : 1)} 600w
-                {f:uri.image(image : file, height : '350c', width : '350c', crop : 1)} 350w
-            "
-            sizes="
-                (min-width: 1200px) calc(100% / {columns.xl}),
-                (min-width: 992px) calc(100% / {columns.lg}),
-                (min-width: 768px) calc(100% / {columns.md}),
-                (min-width: 576px) calc(100% / {columns.sm}),
-                100vw
-            "
-            src="{f:uri.image(image : file, width : '350c', height : '350c')}"
-            alt="{file.properties.alternative}"
-            title="{title}"
-            class="img-fluid"
-        />
-    </a>
-</f:section>
 
-<f:section name="caption">
-    <f:if condition="{title}">
-        <div class="caption">
-            {title}
-        </div>
-    </f:if>
-</f:section>
+<f:comment>
+
+    srcset="
+    {f:uri.image(image : file, height : '1000c', width : '1000c', crop : 1)} 1000w,
+    {f:uri.image(image : file, height : '600c', width : '600c', crop : 1)} 600w
+    {f:uri.image(image : file, height : '350c', width : '350c', crop : 1)} 350w
+    "
+    sizes="
+    (min-width: 1200px) calc(100% / {columns.xl}),
+    (min-width: 992px) calc(100% / {columns.lg}),
+    (min-width: 768px) calc(100% / {columns.md}),
+    (min-width: 576px) calc(100% / {columns.sm}),
+    100vw
+    "
+</f:comment>
