@@ -51,14 +51,14 @@ class PaginateViewHelper extends AbstractViewHelper {
     private static function getCurrentPage(int $galleryUid) : int {
         $page = 1;
 
-        if(key_exists('tx_bwgallery_gallery', $_GET)) {
-            $galleryGetData = $_GET["tx_bwgallery_gallery"];
-            if(key_exists('page', $galleryGetData) && key_exists('id', $galleryGetData) && (int)$galleryGetData["id"] === $galleryUid) {
+        if(key_exists('bwGallery', $_GET)) {
+            $galleryGetData = $_GET["bwGallery"];
+            if(key_exists('page', $galleryGetData) && key_exists('uid', $galleryGetData) && (int)$galleryGetData["uid"] === $galleryUid) {
                 $page = (int)$galleryGetData["page"];
             }
         }
 
-        return $page ? $page : 1;
+        return $page ?: 1;
     }
 
     /**

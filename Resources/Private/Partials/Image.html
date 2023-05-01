@@ -1,0 +1,32 @@
+<div class="col image img-wrapper" data-categories="{file.categoriesUidsAsString}">
+    <div class="position-relative">
+        <a href="{f:uri.image(image : file)}" data-lightbox="gallery-{guid}" data-title="{file.description}" class="d-block">
+            <img
+                data-src="{f:uri.image(image : file, width : '350c', height : '350c')}"
+                src="{f:uri.image(image : file, width : '50c', height : '50c')}"
+                alt="{file.properties.alternative}"
+                title="{file.description}"
+                class="img-fluid lazy"
+            />
+        </a>
+
+        <f:if condition="{file.description} || {file.copyright}">
+            <div class="caption">
+                <f:if condition="{file.description}">
+                    <div>{file.description}</div>
+                </f:if>
+                <f:if condition="{file.copyright}">
+                    <div>© {file.copyright}</div>
+                </f:if>
+            </div>
+        </f:if>
+
+        <f:if condition="{file.categories}">
+            <div class="categories">
+                <f:for each="{file.categories}" as="category">
+                    <span class="category">{category.title}</span>
+                </f:for>
+            </div>
+        </f:if>
+    </div>
+</div>

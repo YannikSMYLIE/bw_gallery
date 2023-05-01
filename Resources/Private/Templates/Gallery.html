@@ -11,6 +11,25 @@
 <f:section name="Main">
     <div class="tx-bw-gallery">
         <div class="gallerycontainer">
+            <div class="header">
+                <f:if condition="{data.tx_bwgallery_categories}">
+                    <f:alias map="{categories : '{bw:categories(items : files)}'}">
+                        <f:if condition="{categories -> f:count()}">
+                            <div class="categories mb-3">
+                                <strong>Bilder filtern:</strong>
+                                <div class="mt-2">
+                                    <a href="#" data-category="-1" class="btn btn-primary mr-1 category">Alle Kategorien</a>
+                                    <f:for each="{categories}" as="category">
+                                        <a href="#" data-category="{category.uid}" class="btn btn-secondary mr-1 category">{category.title}</a>
+                                    </f:for>
+                                </div>
+                            </div>
+                        </f:if>
+                    </f:alias>
+
+                </f:if>
+            </div>
+
             <f:if condition="{data.tx_bwgallery_pagination}">
                 <f:then>
                     <bw:paginate id="{data.uid}" objects="{files}" items="paginatedImages" pages="pages" itemsPerPage="{data.tx_bwgallery_pagination_elements}">
@@ -42,9 +61,9 @@
                 <f:if condition="{current}">
                     <f:then>{pageId}</f:then>
                     <f:else>
-                        <f:link.action section="{data.uid}" arguments="{page : pageId, id : data.uid}" extensionName="BwGallery" pluginName="Gallery">
+                        <f:link.page section="{data.uid}" additionalParams="{bwGallery : {page : pageId, uid : data.uid}}">
                             {pageId}
-                        </f:link.action>
+                        </f:link.page>
                     </f:else>
                 </f:if>
             </li>

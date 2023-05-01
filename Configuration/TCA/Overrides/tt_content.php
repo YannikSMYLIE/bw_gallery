@@ -80,6 +80,21 @@
                 ]
             ],
         ],
+        'tx_bwgallery_categories' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:bw_gallery/Resources/Private/Language/Tca.xlf:tx_bwgallery_categories',
+            'config' => [
+                'type' => 'check',
+                'renderType' => 'checkboxToggle',
+                'default' => 0,
+                'items' => [
+                    [
+                        0 => '',
+                        1 => '',
+                    ]
+                ],
+            ],
+        ],
         'tx_bwgallery_columns' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:bw_gallery/Resources/Private/Language/Tca.xlf:tx_bwgallery_columns',
@@ -155,13 +170,14 @@
 
 // Eigenes Inhaltselement definieren
 $GLOBALS['TCA']['tt_content']['types']['tx_bwgallery'] = [
-    'previewRenderer' => \BoergenerWebdesign\BwGallery\Preview\PreviewRenderer::class,
+    //'previewRenderer' => \BoergenerWebdesign\BwGallery\Preview\PreviewRenderer::class,
     'showitem' => '
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
             --palette--;;general,
             --palette--;;headers,
         --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.media,
             --palette--;LLL:EXT:bw_gallery/Resources/Private/Language/Tca.xlf:tx_bwgallery_pagination;tx_bwgallery_pagination,
+            tx_bwgallery_categories,
             --palette--;LLL:EXT:bw_gallery/Resources/Private/Language/Tca.xlf:tx_bwgallery_limit;tx_bwgallery_limit,
             tx_bwgallery_columns,
             --palette--;Dateien;tx_bwgallery_files,

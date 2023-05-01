@@ -26,6 +26,9 @@
             <trans-unit id="tx_bwgallery_columns">
                 <source>Maximale Spaltenanzahl</source>
             </trans-unit>
+            <trans-unit id="tx_bwgallery_categories">
+                <source>Nach Kategorien sortieren</source>
+            </trans-unit>
             <trans-unit id="tx_bwgallery_limit">
                 <source>Nicht alle Bilder ausgeben</source>
             </trans-unit>

@@ -2,6 +2,7 @@
 
 namespace BoergenerWebdesign\BwGallery\DataProcessing;
 
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\DataProcessing\FilesProcessor;
 
@@ -29,7 +30,6 @@ class GalleryProcessor extends FilesProcessor {
                 $processedData[$targetVariableName] = $files;
             }
         }
-
         return $processedData;
     }
 }
