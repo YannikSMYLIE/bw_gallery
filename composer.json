@@ -5,8 +5,8 @@
   "license": "GPL-2.0-or-later",
   "require": {
     "php": "^7.4 || ^8",
-    "typo3/cms-core": "^11.5",
-    "wapplersystems/ws-scss": "^1.2 || ^11"
+    "typo3/cms-core": "^11.5 || ^12.4",
+    "wapplersystems/ws-scss": "*"
   },
   "replace": {
     "boergenerwebdesign/bw_gallery": "self.version",
