@@ -1,6 +1,6 @@
 <div class="col image img-wrapper" data-categories="{file.categoriesUidsAsString}">
     <div class="position-relative">
-        <a href="{f:uri.image(image : file)}" data-lightbox="gallery-{guid}" data-title="{file.description}" class="d-block">
+        <a href="{f:uri.image(image : file)}" data-lightbox="gallery-{guid}" data-title="{file.description}{f:if(condition : file.properties.copyright, then : '<div class=\'fw-normal\'>© {file.properties.copyright}</div>')}" class="d-block">
             <img
                 data-src="{f:uri.image(image : file, width : '350c', height : '350c')}"
                 src="{f:uri.image(image : file, width : '50c', height : '50c')}"
@@ -15,8 +15,8 @@
                 <f:if condition="{file.description}">
                     <div>{file.description}</div>
                 </f:if>
-                <f:if condition="{file.copyright}">
-                    <div>© {file.copyright}</div>
+                <f:if condition="{file.properties.copyright}">
+                    <div>© {file.properties.copyright}</div>
                 </f:if>
             </div>
         </f:if>
