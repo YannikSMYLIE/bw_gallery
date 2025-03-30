@@ -13,8 +13,8 @@
                 'default' => 1,
                 'items' => [
                     [
-                        0 => '',
-                        1 => '',
+                        "label" => '',
+                        "value" => '',
                     ]
                 ],
             ],
@@ -34,8 +34,8 @@
                 'default' => 1,
                 'items' => [
                     [
-                        0 => '',
-                        1 => '',
+                        "label" => '',
+                        "value" => '',
                     ]
                 ],
             ],
@@ -55,8 +55,8 @@
                 'default' => 1,
                 'items' => [
                     [
-                        0 => '',
-                        1 => '',
+                        "label" => '',
+                        "value" => '',
                     ]
                 ],
             ],
@@ -71,9 +71,9 @@
                 ],
             ],
             'config' => [
-                'type' => 'input',
+                'type' => 'number',
                 'default' => 48,
-                'eval' => 'required,int',
+                'required' => true,
                 'range' => [
                     'lower' => 1,
                     'upper' => 100
@@ -89,8 +89,8 @@
                 'default' => 0,
                 'items' => [
                     [
-                        0 => '',
-                        1 => '',
+                        "label" => '',
+                        "value" => '',
                     ]
                 ],
             ],
@@ -99,9 +99,9 @@
             'exclude' => 0,
             'label' => 'LLL:EXT:bw_gallery/Resources/Private/Language/Tca.xlf:tx_bwgallery_columns',
             'config' => [
-                'type' => 'input',
+                'type' => 'number',
                 'default' => 6,
-                'eval' => 'required,int',
+                'required' => true,
                 'range' => [
                     'lower' => 1,
                     'upper' => 6
@@ -118,8 +118,8 @@
                 'default' => 1,
                 'items' => [
                     [
-                        0 => '',
-                        1 => '',
+                        "label" => '',
+                        "value" => '',
                     ]
                 ],
             ],
@@ -129,9 +129,9 @@
             'label' => 'LLL:EXT:bw_gallery/Resources/Private/Language/Tca.xlf:tx_bwgallery_limit_number',
             'displayCond' => 'FIELD:tx_bwgallery_limit:REQ:true',
             'config' => [
-                'type' => 'input',
+                'type' => 'number',
                 'default' => 12,
-                'eval' => 'required,int'
+                'required' => true,
             ],
         ],
     ],
