@@ -57,7 +57,7 @@ class File extends Core\File {
                 'category',
                 'sys_category_record_mm',
                 'mm',
-                $queryBuilder -> expr() -> andX(
+                $queryBuilder -> expr() -> and(
                     $queryBuilder -> expr() -> eq('category.uid', $queryBuilder->quoteIdentifier('mm.uid_local')),
                     $queryBuilder -> expr() -> eq('mm.tablenames', $queryBuilder->createNamedParameter('sys_file_metadata')),
                     $queryBuilder -> expr() -> eq('mm.fieldname', $queryBuilder->createNamedParameter('categories'))

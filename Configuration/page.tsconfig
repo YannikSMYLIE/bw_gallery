@@ -1,0 +1,13 @@
+mod.wizards.newContentElement.wizardItems.common {
+    elements {
+        tx_bwgallery {
+            iconIdentifier = tx-bwgallery-icon
+            title = LLL:EXT:bw_gallery/Resources/Private/Language/Tca.xlf:title
+            description = LLL:EXT:bw_gallery/Resources/Private/Language/Tca.xlf:description
+            tt_content_defValues {
+                CType = tx_bwgallery
+            }
+        }
+    }
+    show := addToList(tx_bwgallery)
+}

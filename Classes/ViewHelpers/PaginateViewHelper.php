@@ -22,23 +22,20 @@ class PaginateViewHelper extends AbstractViewHelper {
     }
 
     /**
-     * @param array $arguments
-     * @param \Closure $renderChildrenClosure
-     * @param RenderingContextInterface $renderingContext
      * @return string
      */
-    public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext): string {
-        $currentPage = self::getCurrentPage($arguments["id"]);
-        $paginator = new ArrayPaginator($arguments["objects"], $currentPage, $arguments["itemsPerPage"]);
+    public function render(): string {
+        $currentPage = self::getCurrentPage($this -> arguments["id"]);
+        $paginator = new ArrayPaginator($this -> arguments["objects"], $currentPage, $this -> arguments["itemsPerPage"]);
 
         $output = '';
-        $templateVariableContainer = $renderingContext->getVariableProvider();
+        $templateVariableContainer = $this -> renderingContext->getVariableProvider();
 
-        $templateVariableContainer->add($arguments['items'], $paginator -> getPaginatedItems());
-        $templateVariableContainer->add($arguments['pages'], self::getPages($currentPage, $paginator));
-        $output .= $renderChildrenClosure();
-        $templateVariableContainer->remove($arguments['pages']);
-        $templateVariableContainer->remove($arguments['items']);
+        $templateVariableContainer->add($this -> arguments['items'], $paginator -> getPaginatedItems());
+        $templateVariableContainer->add($this -> arguments['pages'], self::getPages($currentPage, $paginator));
+        $output .= $this->renderChildren();
+        $templateVariableContainer->remove($this -> arguments['pages']);
+        $templateVariableContainer->remove($this -> arguments['items']);
 
         return $output;
     }

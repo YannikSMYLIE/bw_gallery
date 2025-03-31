@@ -1,7 +1,6 @@
 <?php
 namespace BoergenerWebdesign\BwGallery\ViewHelpers;
 
-use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 class ColumnsViewHelper extends AbstractViewHelper {
@@ -13,18 +12,11 @@ class ColumnsViewHelper extends AbstractViewHelper {
     }
 
     /**
-     * @param array $arguments
-     * @param \Closure $renderChildrenClosure
-     * @param RenderingContextInterface $renderingContext
-     * @return string
+     * @return array
      */
-    public static function renderStatic(
-        array $arguments,
-        \Closure $renderChildrenClosure,
-        RenderingContextInterface $renderingContext
-    ) : array {
+    public function render() : array {
         /** @var int $max */
-        $max = $arguments["columns"];
+        $max = $this -> arguments["columns"];
         return [
             'xs' => min(1, $max),
             'sm' => min(2, $max),
