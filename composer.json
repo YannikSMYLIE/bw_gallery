@@ -6,10 +6,9 @@
   "require": {
     "php": "^7.4",
     "typo3/cms-core": "^9.5|^10.4",
-    "svewap/ws-scss": "^1.1"
+    "wapplersystems/ws-scss": "^1.1"
   },
   "replace": {
-    "boergenerwebdesign/bw-gallery": "self.version",
     "typo3-ter/bw-gallery": "self.version"
   },
   "extra": {
